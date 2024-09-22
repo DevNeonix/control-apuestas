@@ -1,0 +1,41 @@
+<div class="row">
+  <!-- Cada input field va aquí -->
+  <div class="col-6">
+    <label class="form-label">Bank Inicial:</label>
+    <input type="number" [(ngModel)]="bankInicial" class="form-control" />
+  </div>
+  <div class="col-6">
+    <label class="form-label">Stake Factor:</label>
+    <input type="number" [(ngModel)]="stakeFactor" class="form-control" />
+  </div>
+  <div class="col-6">
+    <label class="form-label">Apuestas Diarias:</label>
+    <input type="number" [(ngModel)]="apuestasDiarias" class="form-control" />
+  </div>
+  <div class="col-6">
+    <label class="form-label">Cuota Promedio:</label>
+    <input type="number" [(ngModel)]="cuotaPromedio" class="form-control" />
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col-6">
+        <label class="form-label">Fecha Inicio:</label>
+        <input type="date" [(ngModel)]="fechaInicio" class="form-control" />
+      </div>
+      <div class="col-6">
+        <label class="form-label">Meta:</label>
+        <input type="number" [(ngModel)]="meta" class="form-control" />
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="row mt-4">
+      <div class="col-6">
+        <button class="btn btn-primary w-100" (click)="guardarDatos()">Guardar Datos</button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-secondary w-100" (click)="resetDatos()">Resetear Datos</button>
+      </div>
+    </div>
+  </div>
+</div>
