@@ -1,40 +1,43 @@
-<table class="table table-bordered table-hover">
-  <thead class="table-light">
-  <tr>
-    <th>Día</th>
-    <th>Bank Inicial</th>
-    <th>Stake</th>
-    <th>Inversión</th>
-    <th>Retorno</th>
-    <th>Ganancia</th>
-    <th>Proyeccion</th>
-    <th>Cierre de Dia</th>
-    <th>Ganancia Real</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let dato of datos | async; let i = index"
-  [ngClass]="{'table-active': i + 1 === diaActual}">
-    <td>{{ dato.dia }}</td>
-    <td>{{ dato.bank | number:'1.2-2' }}</td>
-    <td>{{ dato.stake | number:'1.2-2' }}</td>
-    <td>{{ dato.inversion | number:'1.2-2' }}</td>
-    <td>{{ dato.retorno | number:'1.2-2' }}</td>
-    <td>{{ dato.ganancia | number:'1.2-2' }}</td>
-    <td>{{ dato.meta | number:'1.2-2' }}</td>
-    <td >
-      @if(isEditable === i){
-        <input type="text" (change)="cierreCaja($event, i)" value="{{ dato.cierre | number:'1.2-2' }}" class="form-control form-control-sm">
-      }@else{
-        {{ dato.cierre | number:'1.2-2' }}
-        <button class="btn btn-sm btn-outline-info" (click)="this.isEditable = i">
-          <i class="bi bi-pencil"></i>
-        </button>
-      }
+<div class="relative overflow-auto">
+  <table class="table table-bordered table-hover table-sm">
+    <thead class="table-light">
+    <tr>
+      <th>Día</th>
+      <th>Bank Inicial</th>
+      <th>Stake</th>
+      <th>Inversión</th>
+      <th>Retorno</th>
+      <th>Ganancia</th>
+      <th>Proyeccion</th>
+      <th>Cierre de Dia</th>
+      <th>Ganancia Real</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dato of datos | async; let i = index"
+        [ngClass]="{'table-active': i + 1 === diaActual}">
+      <td>{{ dato.dia }}</td>
+      <td>{{ dato.bank | number:'1.2-2' }}</td>
+      <td>{{ dato.stake | number:'1.2-2' }}</td>
+      <td>{{ dato.inversion | number:'1.2-2' }}</td>
+      <td>{{ dato.retorno | number:'1.2-2' }}</td>
+      <td>{{ dato.ganancia | number:'1.2-2' }}</td>
+      <td>{{ dato.meta | number:'1.2-2' }}</td>
+      <td >
+        @if(isEditable === i){
+          <input type="text" (change)="cierreCaja($event, i)" value="{{ dato.cierre | number:'1.2-2' }}" class="form-control form-control-sm">
+        }@else{
+          {{ dato.cierre | number:'1.2-2' }}
+          <button class="btn btn-sm btn-outline-info" (click)="this.isEditable = i">
+            <i class="bi bi-pencil"></i>
+          </button>
+        }
 
-    </td>
-    <td>{{ dato.gananciaReal | number:'1.2-2' }}</td>
+      </td>
+      <td>{{ dato.gananciaReal | number:'1.2-2' }}</td>
 
-  </tr>
-  </tbody>
-</table>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

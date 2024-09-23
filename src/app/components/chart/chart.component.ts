@@ -23,14 +23,30 @@ export class ChartComponent implements OnInit {
   public lineChartOptions: ChartOptions = {
     responsive: true,
     scales: {
-      x: {},
+      x: {
+        title: {
+          display: true,
+          text: 'Día'
+        }
+      },
       y: {
         beginAtZero: false,
+        title: {
+          display: true,
+          text: 'Bank Inicial'
+        }
       },
     },
     plugins: {
       legend: {
         display: true,
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return context.dataset.label + ': ' + context.parsed.y;
+          }
+        }
       },
     },
   };
